@@ -1,3 +1,6 @@
+analyzer:
+  errors:
+    public_member_api_docs: ignore
 linter:
   rules:
     - always_declare_return_types

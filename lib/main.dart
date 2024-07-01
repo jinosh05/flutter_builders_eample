@@ -5,7 +5,7 @@ void main() {
   runApp(
     MaterialApp(
       theme: ThemeData.dark(),
-      home: const HomePage(),
+      home: HomePage(),
     ),
   );
 }

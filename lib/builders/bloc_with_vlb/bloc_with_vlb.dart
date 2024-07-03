@@ -61,7 +61,7 @@ class _SearchBar extends StatelessWidget {
           decoration: InputDecoration(
             border: const OutlineInputBorder(),
             suffixIcon: IconButton(
-              onPressed: () async {
+              onPressed: () {
                 controller.clear();
                 onClear();
               },

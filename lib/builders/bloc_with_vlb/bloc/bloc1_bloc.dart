@@ -20,6 +20,9 @@ class Bloc1Bloc extends Bloc<Bloc1Event, Bloc1State> {
           );
         },
       );
+      if (event is ClearTextEvent) {
+        listNotifier.value = <DictionaryData>[];
+      }
     });
   }
 

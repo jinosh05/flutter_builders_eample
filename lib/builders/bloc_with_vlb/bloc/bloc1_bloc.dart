@@ -27,7 +27,7 @@ class Bloc1Bloc extends Bloc<Bloc1Event, Bloc1State> {
   }
 
   final ValueNotifier<List<DictionaryData>> listNotifier =
-      ValueNotifier(<DictionaryData>[]);
+      ValueNotifier<List<DictionaryData>>(<DictionaryData>[]);
 
   final TextEditingController controller = TextEditingController();
 }

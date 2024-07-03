@@ -4,14 +4,9 @@ import "package:flutter_bloc/flutter_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/bloc1_bloc.dart";
 import "package:flutter_builders_eample/models/dictionary_model.dart";
 
-class BlocWithVlb extends StatefulWidget {
+class BlocWithVlb extends StatelessWidget {
   const BlocWithVlb({super.key});
 
-  @override
-  State<BlocWithVlb> createState() => _BlocWithVlbState();
-}
-
-class _BlocWithVlbState extends State<BlocWithVlb> {
   @override
   Widget build(final BuildContext context) {
     final Bloc1Bloc bloc = context.read<Bloc1Bloc>();

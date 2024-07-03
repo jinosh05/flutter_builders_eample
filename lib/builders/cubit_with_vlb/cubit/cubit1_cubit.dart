@@ -20,6 +20,10 @@ class Cubit1Cubit extends Cubit<Cubit1State> {
     );
   }
 
+  void clearText() {
+    listNotifier.value = <DictionaryData>[];
+  }
+
   final ValueNotifier<List<DictionaryData>> listNotifier =
       ValueNotifier<List<DictionaryData>>(<DictionaryData>[]);
 

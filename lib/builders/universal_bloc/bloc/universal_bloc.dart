@@ -8,7 +8,7 @@ class UniversalBloc extends Bloc<UniversalEvent, UniversalState> {
   UniversalBloc() : super(UniversalValueState(0)) {
     on<UniversalEvent>(
         (final UniversalEvent event, final Emitter<UniversalState> emit) {
-      if (event is UniversalIncremetEvent) {
+      if (event is UniversalIncrementEvent) {
         ++nvalue;
         emit(UniversalValueState(nvalue));
       }

@@ -43,7 +43,7 @@ class MainApp extends StatelessWidget {
         theme: ThemeData.dark(),
         home: Builder(
           builder: (final BuildContext context) {
-            return BlocProvider(
+            return BlocProvider<PageMemoryBloc>(
               create: (final BuildContext context) => PageMemoryBloc(),
               child: const PageMemoryScreen(),
             );

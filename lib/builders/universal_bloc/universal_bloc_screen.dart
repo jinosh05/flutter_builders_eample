@@ -39,7 +39,7 @@ class UniversalBlocScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              bloc.add(UniversalIncremetEvent());
+              bloc.add(UniversalIncrementEvent());
             },
             child: Text(
               "Increment",
@@ -53,7 +53,7 @@ class UniversalBlocScreen extends StatelessWidget {
             onPressed: () {
               unawaited(
                 Navigator.of(context).push(
-                  MaterialPageRoute(
+                  MaterialPageRoute<UniversalBlocScreen>(
                     builder: (final BuildContext context) =>
                         const UniversalBlocScreen(),
                   ),

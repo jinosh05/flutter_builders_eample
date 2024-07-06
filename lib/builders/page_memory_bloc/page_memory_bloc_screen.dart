@@ -53,8 +53,9 @@ class PageMemoryScreen extends StatelessWidget {
             onPressed: () {
               unawaited(
                 Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (final BuildContext context) => BlocProvider(
+                  MaterialPageRoute<BlocProvider<PageMemoryBloc>>(
+                    builder: (final BuildContext context) =>
+                        BlocProvider<PageMemoryBloc>(
                       create: (final BuildContext context) => PageMemoryBloc(),
                       child: const PageMemoryScreen(),
                     ),

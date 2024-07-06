@@ -5,6 +5,8 @@ import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc_with_vlb.dar
 import "package:flutter_builders_eample/builders/builders.dart";
 import "package:flutter_builders_eample/builders/cubit_with_vlb/cubit/cubit1_cubit.dart";
 import "package:flutter_builders_eample/builders/cubit_with_vlb/cubit_with_vlb.dart";
+import "package:flutter_builders_eample/builders/page_memory_bloc/bloc/page_memory_bloc.dart";
+import "package:flutter_builders_eample/builders/page_memory_bloc/page_memory_bloc_screen.dart";
 import "package:flutter_builders_eample/builders/services_with_vlb/service_with_vlb.dart";
 import "package:flutter_builders_eample/builders/universal_bloc/bloc/universal_bloc.dart";
 import "package:flutter_builders_eample/builders/universal_bloc/universal_bloc_screen.dart";
@@ -41,7 +43,10 @@ class MainApp extends StatelessWidget {
         theme: ThemeData.dark(),
         home: Builder(
           builder: (final BuildContext context) {
-            return const UniversalBlocScreen();
+            return BlocProvider(
+              create: (final BuildContext context) => PageMemoryBloc(),
+              child: const PageMemoryScreen(),
+            );
             // ignore: dead_code
             return const BlocWithVlb();
             return const CubitWithVlb();

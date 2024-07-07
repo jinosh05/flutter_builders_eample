@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_async/bloc/async_bloc.dart";
+import "package:flutter_builders_eample/builders/bloc_with_async/bloc_with_async.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/bloc1_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc_with_vlb.dart";
 import "package:flutter_builders_eample/builders/builders.dart";
@@ -47,10 +48,7 @@ class MainApp extends StatelessWidget {
         theme: ThemeData.dark(),
         home: Builder(
           builder: (final BuildContext context) {
-            return BlocProvider<PageMemoryBloc>(
-              create: (final BuildContext context) => PageMemoryBloc(),
-              child: const PageMemoryScreen(),
-            );
+            return const BlocWithAsync();
             // ignore: dead_code
             return const BlocWithVlb();
             return const CubitWithVlb();
@@ -59,6 +57,10 @@ class MainApp extends StatelessWidget {
             return const ServiceWithVlb();
             return const VLBuildersPage();
             return HomePage();
+            return BlocProvider<PageMemoryBloc>(
+              create: (final BuildContext context) => PageMemoryBloc(),
+              child: const PageMemoryScreen(),
+            );
           },
         ),
       );

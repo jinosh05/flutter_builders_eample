@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
+import "package:flutter_builders_eample/builders/bloc_with_async/bloc/async_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/bloc1_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc_with_vlb.dart";
 import "package:flutter_builders_eample/builders/builders.dart";
@@ -26,6 +27,9 @@ void main() {
         ),
         BlocProvider<UniversalBloc>(
           create: (final BuildContext context) => UniversalBloc(),
+        ),
+        BlocProvider<AsyncBloc>(
+          create: (final BuildContext context) => AsyncBloc(),
         ),
       ],
       child: const MainApp(),

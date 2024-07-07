@@ -1,6 +1,8 @@
+import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_async/bloc/async_bloc.dart";
+import "package:flutter_builders_eample/widgets/async_button.dart";
 
 class BlocWithAsync extends StatefulWidget {
   const BlocWithAsync({super.key});
@@ -10,6 +12,7 @@ class BlocWithAsync extends StatefulWidget {
 }
 
 class _BlocWithAsyncState extends State<BlocWithAsync> {
+  ValueNotifier<int> randNotifier = ValueNotifier<int>(0);
   @override
   Widget build(final BuildContext context) {
     final AsyncBloc bloc = context.read<AsyncBloc>();
@@ -35,7 +38,7 @@ class _BlocWithAsyncState extends State<BlocWithAsync> {
                 }
                 if (state is AsyncLoaded) {
                   return Text(
-                    "Random Number is ${state.number}",
+                    "Random Number is : ${state.number}",
                     style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                           color: Colors.purple,
                         ),
@@ -57,8 +60,42 @@ class _BlocWithAsyncState extends State<BlocWithAsync> {
                   .copyWith(color: Colors.blue),
             ),
           ),
+          ValueListenableBuilder<int>(
+            valueListenable: randNotifier,
+            builder: (
+              final BuildContext context,
+              final int value,
+              final Widget? child,
+            ) =>
+                Text(
+              "Random Number from Async : $value",
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    color: Colors.purple,
+                  ),
+            ),
+          ),
+          AsyncButton(
+            onPressed: () async {
+              randNotifier.value = await bloc.getRandomNumber();
+            },
+            child: Text(
+              "VLB Generate",
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(color: Colors.yellow),
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  @override
+  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+      DiagnosticsProperty<ValueNotifier<int>>("randNotifier", randNotifier),
     );
   }
 }

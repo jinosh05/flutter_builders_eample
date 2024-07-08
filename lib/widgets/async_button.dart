@@ -24,7 +24,7 @@ class AsyncButton extends StatefulWidget {
 }
 
 class _AsyncButtonState extends State<AsyncButton> {
-  final ValueNotifier<bool> _valueNotifier = ValueNotifier(false);
+  final ValueNotifier<bool> _valueNotifier = ValueNotifier<bool>(false);
 
   Future<void> _onTap() async {
     _valueNotifier.value = true;
@@ -33,7 +33,7 @@ class _AsyncButtonState extends State<AsyncButton> {
   }
 
   @override
-  Widget build(final BuildContext context) => ValueListenableBuilder(
+  Widget build(final BuildContext context) => ValueListenableBuilder<bool>(
         valueListenable: _valueNotifier,
         builder: (
           final BuildContext context,

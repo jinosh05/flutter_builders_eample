@@ -11,7 +11,6 @@ Welcome to the Flutter Project! This project demonstrates various state manageme
   - [BlocBuilder's Universal Memory](#blocbuilders-universal-memory)
   - [BlocBuilder's Page Memory](#blocbuilders-page-memory)
   - [BlocBuilder with Async Function](#blocbuilder-with-async-function)
-  - [BlocBuilder with ValueListenableBuilder](#blocbuilder-with-valuelistenablebuilder)
   - [Cubit and BlocBuilders](#cubit-and-blocbuilders)
   - [Cubit and ValueListenableBuilders](#cubit-and-valuelistenablebuilders)
   - [BlocBuilder under Build When condition](#blocbuilder-under-build-when-condition)
@@ -152,26 +151,7 @@ BlocBuilder<MyBloc, MyState>(
 )
 ```
 
-### BlocBuilder with ValueListenableBuilder
 
-Combining `BlocBuilder` with `ValueListenableBuilder` can be useful for listening to both Bloc state changes and other value changes simultaneously.
-
-**Usage:**
-```dart
-BlocBuilder<MyBloc, MyState>(
-  builder: (context, state) {
-    return ValueListenableBuilder<int>(
-      valueListenable: _counter,
-      builder: (context, value, child) {
-        if (state is MyLoadedState) {
-          return Text('Data: ${state.data}, Counter: $value');
-        }
-        return CircularProgressIndicator();
-      },
-    );
-  },
-)
-```
 
 ### Cubit and BlocBuilders
 

@@ -5,6 +5,7 @@ import "package:flutter_builders_eample/builders/bloc_with_async/bloc_with_async
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/bloc1_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc_with_vlb.dart";
 import "package:flutter_builders_eample/builders/builders.dart";
+import "package:flutter_builders_eample/builders/cubit_builders/cubit/cubit_base_cubit.dart";
 import "package:flutter_builders_eample/builders/cubit_with_vlb/cubit/cubit1_cubit.dart";
 import "package:flutter_builders_eample/builders/cubit_with_vlb/cubit_with_vlb.dart";
 import "package:flutter_builders_eample/builders/page_memory_bloc/bloc/page_memory_bloc.dart";
@@ -31,6 +32,9 @@ void main() {
         ),
         BlocProvider<AsyncBloc>(
           create: (final BuildContext context) => AsyncBloc(),
+        ),
+        BlocProvider<CubitBaseCubit>(
+          create: (final BuildContext context) => CubitBaseCubit(),
         ),
       ],
       child: const MainApp(),

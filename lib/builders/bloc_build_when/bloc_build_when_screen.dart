@@ -2,8 +2,8 @@ import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_build_when/bloc/build_when_bloc.dart";
 
-class BuildWhenScreen extends StatelessWidget {
-  const BuildWhenScreen({super.key});
+class BlocBuildWhenScreen extends StatelessWidget {
+  const BlocBuildWhenScreen({super.key});
 
   @override
   Widget build(final BuildContext context) {

@@ -1,12 +1,14 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_build_when/bloc/build_when_bloc.dart";
-import "package:flutter_builders_eample/builders/bloc_build_when/build_when_screen.dart";
+import "package:flutter_builders_eample/builders/bloc_build_when/bloc_build_when_screen.dart";
 import "package:flutter_builders_eample/builders/bloc_with_async/bloc/async_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_async/bloc_with_async.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/bloc1_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc_with_vlb.dart";
 import "package:flutter_builders_eample/builders/builders.dart";
+import "package:flutter_builders_eample/builders/cubit_build_when/cubit/build_when_cubit.dart";
+import "package:flutter_builders_eample/builders/cubit_build_when/cubit_build_when_screen.dart";
 import "package:flutter_builders_eample/builders/cubit_builders/cubit/cubit_base_cubit.dart";
 import "package:flutter_builders_eample/builders/cubit_builders/cubit_builders.dart";
 import "package:flutter_builders_eample/builders/cubit_with_vlb/cubit/cubit1_cubit.dart";
@@ -42,6 +44,9 @@ void main() {
         BlocProvider<BuildWhenBloc>(
           create: (final BuildContext context) => BuildWhenBloc(),
         ),
+        BlocProvider<BuildWhenCubit>(
+          create: (final BuildContext context) => BuildWhenCubit(),
+        ),
       ],
       child: const MainApp(),
     ),
@@ -58,7 +63,7 @@ class MainApp extends StatelessWidget {
         theme: ThemeData.dark(),
         home: Builder(
           builder: (final BuildContext context) {
-            return const BuildWhenScreen();
+            return const CubitBuildWhenScreen();
             // ignore: dead_code
             return const BlocWithVlb();
             return const CubitWithVlb();
@@ -68,6 +73,7 @@ class MainApp extends StatelessWidget {
             return const BlocWithAsync();
             return const ServiceWithVlb();
             return const VLBuildersPage();
+            return const BlocBuildWhenScreen();
             return HomePage();
             return BlocProvider<PageMemoryBloc>(
               create: (final BuildContext context) => PageMemoryBloc(),

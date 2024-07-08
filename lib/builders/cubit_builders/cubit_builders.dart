@@ -1,20 +1,13 @@
 import "dart:async";
 
-import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 import "package:flutter_builders_eample/builders/cubit_builders/cubit/cubit_base_cubit.dart";
 import "package:flutter_builders_eample/widgets/async_button.dart";
 
-class CubitBuildersEg extends StatefulWidget {
+class CubitBuildersEg extends StatelessWidget {
   const CubitBuildersEg({super.key});
 
-  @override
-  State<CubitBuildersEg> createState() => _CubitBuildersEgState();
-}
-
-class _CubitBuildersEgState extends State<CubitBuildersEg> {
-  ValueNotifier<int> randNotifier = ValueNotifier<int>(0);
   @override
   Widget build(final BuildContext context) {
     final CubitBaseCubit cubit = context.read<CubitBaseCubit>();
@@ -64,8 +57,10 @@ class _CubitBuildersEgState extends State<CubitBuildersEg> {
                   .copyWith(color: Colors.blue),
             ),
           ),
+
+          /// Cubit with [ValueListenableBuilder]
           ValueListenableBuilder<int>(
-            valueListenable: randNotifier,
+            valueListenable: cubit.randNotifier,
             builder: (
               final BuildContext context,
               final int value,
@@ -80,7 +75,7 @@ class _CubitBuildersEgState extends State<CubitBuildersEg> {
           ),
           AsyncButton(
             onPressed: () async {
-              randNotifier.value = await cubit.getRandomNumber();
+              cubit.randNotifier.value = await cubit.getRandomNumber();
             },
             child: Text(
               "VLB Generate",
@@ -92,14 +87,6 @@ class _CubitBuildersEgState extends State<CubitBuildersEg> {
           ),
         ],
       ),
-    );
-  }
-
-  @override
-  void debugFillProperties(final DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-      DiagnosticsProperty<ValueNotifier<int>>("randNotifier", randNotifier),
     );
   }
 }

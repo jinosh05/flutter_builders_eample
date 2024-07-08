@@ -1,12 +1,14 @@
 import "dart:math";
 
 import "package:bloc/bloc.dart";
-import "package:meta/meta.dart";
+import "package:flutter/material.dart";
 
 part "cubit_base_state.dart";
 
 class CubitBaseCubit extends Cubit<CubitBaseState> {
   CubitBaseCubit() : super(CubitBaseInitial());
+
+  ValueNotifier<int> randNotifier = ValueNotifier<int>(0);
 
   Future<void> getNumberAndEmit() async {
     emit(CubitBaseLoading());

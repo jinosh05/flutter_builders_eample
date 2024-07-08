@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
+import "package:flutter_builders_eample/builders/bloc_build_when/bloc/build_when_bloc.dart";
+import "package:flutter_builders_eample/builders/bloc_build_when/build_when_screen.dart";
 import "package:flutter_builders_eample/builders/bloc_with_async/bloc/async_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_async/bloc_with_async.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/bloc1_bloc.dart";
@@ -37,6 +39,9 @@ void main() {
         BlocProvider<CubitBaseCubit>(
           create: (final BuildContext context) => CubitBaseCubit(),
         ),
+        BlocProvider<BuildWhenBloc>(
+          create: (final BuildContext context) => BuildWhenBloc(),
+        ),
       ],
       child: const MainApp(),
     ),
@@ -53,10 +58,11 @@ class MainApp extends StatelessWidget {
         theme: ThemeData.dark(),
         home: Builder(
           builder: (final BuildContext context) {
-            return const CubitBuildersEg();
+            return const BuildWhenScreen();
             // ignore: dead_code
             return const BlocWithVlb();
             return const CubitWithVlb();
+            return const CubitBuildersEg();
             return const BuildersPage();
             return const UniversalBlocScreen();
             return const BlocWithAsync();

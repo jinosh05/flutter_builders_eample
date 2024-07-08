@@ -6,6 +6,7 @@ import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/bloc1_bloc.d
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc_with_vlb.dart";
 import "package:flutter_builders_eample/builders/builders.dart";
 import "package:flutter_builders_eample/builders/cubit_builders/cubit/cubit_base_cubit.dart";
+import "package:flutter_builders_eample/builders/cubit_builders/cubit_builders.dart";
 import "package:flutter_builders_eample/builders/cubit_with_vlb/cubit/cubit1_cubit.dart";
 import "package:flutter_builders_eample/builders/cubit_with_vlb/cubit_with_vlb.dart";
 import "package:flutter_builders_eample/builders/page_memory_bloc/bloc/page_memory_bloc.dart";
@@ -52,12 +53,13 @@ class MainApp extends StatelessWidget {
         theme: ThemeData.dark(),
         home: Builder(
           builder: (final BuildContext context) {
-            return const BlocWithAsync();
+            return const CubitBuildersEg();
             // ignore: dead_code
             return const BlocWithVlb();
             return const CubitWithVlb();
             return const BuildersPage();
             return const UniversalBlocScreen();
+            return const BlocWithAsync();
             return const ServiceWithVlb();
             return const VLBuildersPage();
             return HomePage();

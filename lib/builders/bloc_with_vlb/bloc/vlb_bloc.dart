@@ -3,12 +3,12 @@ import "package:flutter/material.dart";
 import "package:flutter_builders_eample/models/dictionary_model.dart";
 import "package:flutter_builders_eample/service/api_services.dart";
 
-part "bloc1_event.dart";
-part "bloc1_state.dart";
+part "vlb_event.dart";
+part "vlb_state.dart";
 
-class Bloc1Bloc extends Bloc<Bloc1Event, Bloc1State> {
-  Bloc1Bloc() : super(Bloc1Initial()) {
-    on<Bloc1Event>((final Bloc1Event event, final Emitter<Bloc1State> emit) {
+class VLBBloc extends Bloc<VLBEvent, VLBState> {
+  VLBBloc() : super(VLBInitial()) {
+    on<VLBEvent>((final VLBEvent event, final Emitter<VLBState> emit) {
       controller.addListener(
         () async {
           await ApiServices().fetchApi(controller.text).then(
@@ -20,7 +20,7 @@ class Bloc1Bloc extends Bloc<Bloc1Event, Bloc1State> {
           );
         },
       );
-      if (event is ClearTextEvent) {
+      if (event is ClearTextVLBEvent) {
         listNotifier.value = <DictionaryData>[];
       }
     });

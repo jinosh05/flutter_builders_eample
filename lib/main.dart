@@ -4,7 +4,7 @@ import "package:flutter_builders_eample/builders/bloc_build_when/bloc/build_when
 import "package:flutter_builders_eample/builders/bloc_build_when/bloc_build_when_screen.dart";
 import "package:flutter_builders_eample/builders/bloc_with_async/bloc/async_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_async/bloc_with_async.dart";
-import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/bloc1_bloc.dart";
+import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc/vlb_bloc.dart";
 import "package:flutter_builders_eample/builders/bloc_with_vlb/bloc_with_vlb.dart";
 import "package:flutter_builders_eample/builders/builders.dart";
 import "package:flutter_builders_eample/builders/cubit_build_when/cubit/build_when_cubit.dart";
@@ -26,8 +26,8 @@ void main() {
   runApp(
     MultiBlocProvider(
       providers: <SingleChildWidget>[
-        BlocProvider<Bloc1Bloc>(
-          create: (final BuildContext context) => Bloc1Bloc(),
+        BlocProvider<VLBBloc>(
+          create: (final BuildContext context) => VLBBloc(),
         ),
         BlocProvider<Cubit1Cubit>(
           create: (final BuildContext context) => Cubit1Cubit(),

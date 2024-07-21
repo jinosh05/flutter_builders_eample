@@ -1,28 +1,28 @@
-# flutter_builders_eample
+# flutter_builders_example
 
 Welcome to the Flutter Project! This project demonstrates various state management techniques and their implementation using different types of builders and state management solutions in Flutter. Below you'll find detailed explanations and usage scenarios for each widget and concept included in this project.
+
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [Widgets and Scenarios](#widgets-and-scenarios)
   - [Builder](#builder)
   - [ValueListenableBuilder](#valuelistenablebuilder)
-  - [ValueListenableBuilder with Bloc/Cubit](#valuelistenablebuilder-with-bloc-cubit)
+  - [ValueListenableBuilder with Bloc](#valuelistenablebuilder-with-bloc)
+  - [ValueListenableBuilder with Cubit](#valuelistenablebuilder-with-cubit)
   - [ValueListenableBuilder with Services](#valuelistenablebuilder-with-services)
   - [BlocBuilder's Universal Memory](#blocbuilders-universal-memory)
   - [BlocBuilder's Page Memory](#blocbuilders-page-memory)
   - [BlocBuilder with Async Function](#blocbuilder-with-async-function)
-  - [Cubit and BlocBuilders](#cubit-and-blocbuilders)
-  - [Cubit and ValueListenableBuilders](#cubit-and-valuelistenablebuilders)
-  - [BlocBuilder under Build When condition](#blocbuilder-under-build-when-condition)
   - [CubitBuilder under Build When condition](#cubitbuilder-under-build-when-condition)
+  - [BlocBuilder under Build When condition](#blocbuilder-under-build-when-condition)
 
 ## Getting Started
 
 To get started with this project, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/jinosh05/flutter_builders_eample.git
-cd flutter_builders_eample
+git clone https://github.com/jinosh05/flutter_builders_example.git
+cd flutter_builders_example
 flutter pub get
 ```
 
@@ -61,9 +61,26 @@ ValueListenableBuilder<int>(
 )
 ```
 
-### ValueListenableBuilder with Bloc/Cubit
+### ValueListenableBuilder with Bloc
 
-Combining `ValueListenableBuilder` with Bloc or Cubit allows you to listen to state changes and rebuild the UI accordingly.
+Combining `ValueListenableBuilder` with Bloc allows you to listen to state changes and rebuild the UI accordingly.
+
+**Usage:**
+```dart
+ValueListenableBuilder<MyState>(
+  valueListenable: myBloc.stream,
+  builder: (context, state, child) {
+    if (state is MyLoadedState) {
+      return Text('Loaded: ${state.data}');
+    }
+    return CircularProgressIndicator();
+  },
+)
+```
+
+### ValueListenableBuilder with Cubit
+
+Combining `ValueListenableBuilder` with Cubit allows you to listen to state changes and rebuild the UI accordingly.
 
 **Usage:**
 ```dart
@@ -151,41 +168,21 @@ BlocBuilder<MyBloc, MyState>(
 )
 ```
 
+### CubitBuilder under Build When condition
 
-
-### Cubit and BlocBuilders
-
-Using `Cubit` and `BlocBuilder` together provides a more lightweight alternative to Bloc while still managing state effectively.
+`CubitBuilder` with a `buildWhen` condition allows you to conditionally rebuild your widget based on specific state changes.
 
 **Usage:**
 ```dart
 CubitBuilder<MyCubit, MyState>(
+  buildWhen: (previous, current) {
+    return current is MySpecificState; // Only rebuild if the state is MySpecificState
+  },
   builder: (context, state) {
-    if (state is MyLoadedState) {
-      return Text('Data: ${state.data}');
+    if (state is MySpecificState) {
+      return Text('Specific State Data: ${state.data}');
     }
     return CircularProgressIndicator();
-  },
-)
-```
-
-### Cubit and ValueListenableBuilders
-
-Combining `Cubit` with `ValueListenableBuilder` allows listening to both Cubit state and other value changes.
-
-**Usage:**
-```dart
-CubitBuilder<MyCubit, MyState>(
-  builder: (context, state) {
-    return ValueListenableBuilder<int>(
-      valueListenable: _counter,
-      builder: (context, value, child) {
-        if (state is MyLoadedState) {
-          return Text('Data: ${state.data}, Counter: $value');
-        }
-        return CircularProgressIndicator();
-      },
-    );
   },
 )
 ```
@@ -209,25 +206,6 @@ BlocBuilder<MyBloc, MyState>(
 )
 ```
 
-### CubitBuilder under Build When condition
-
-`CubitBuilder` with a `buildWhen` condition allows you to conditionally rebuild your widget based on specific state changes.
-
-**Usage:**
-```dart
-CubitBuilder<MyCubit, MyState>(
-  buildWhen: (previous, current) {
-    return current is MySpecificState; // Only rebuild if the state is MySpecificState
-  },
-  builder: (context, state) {
-    if (state is MySpecificState) {
-      return Text('Specific State Data: ${state.data}');
-    }
-    return CircularProgressIndicator();
-  },
-)
-```
-
 ## Conclusion
 
 This project demonstrates various advanced state management techniques in Flutter using different combinations of `Builder`, `ValueListenableBuilder`, `BlocBuilder`, and `Cubit`. Feel free to explore the code and adapt these patterns to your own Flutter projects!
@@ -239,4 +217,3 @@ Happy coding!
 ---
 
 Remember to replace placeholders like `MyBloc`, `MyState`, `MyCubit`, `myService`, `myCubit`, `_counter`, etc., with actual implementations relevant to your project.
-```

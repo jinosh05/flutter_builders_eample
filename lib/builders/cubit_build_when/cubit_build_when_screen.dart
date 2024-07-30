@@ -13,7 +13,7 @@ class CubitBuildWhenScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Cubit Build When Screen",
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
       body: Column(

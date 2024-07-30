@@ -17,7 +17,7 @@ class _VLBuildersPageState extends State<VLBuildersPage> {
         appBar: AppBar(
           title: Text(
             "ValueListenableBuilder",
-            style: Theme.of(context).textTheme.headlineLarge,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ),
         body: Column(

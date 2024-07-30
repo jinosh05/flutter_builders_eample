@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "Builders in Flutter with Use Cases",
-            style: Theme.of(context).textTheme.headlineLarge,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ),
         body: ListView.builder(

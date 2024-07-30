@@ -20,7 +20,7 @@ class _BlocWithAsyncState extends State<BlocWithAsync> {
       appBar: AppBar(
         title: Text(
           "Bloc With Async Screen",
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
       body: Column(

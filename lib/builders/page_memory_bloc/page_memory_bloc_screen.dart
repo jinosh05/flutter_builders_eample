@@ -14,7 +14,7 @@ class PageMemoryScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Page Memory Bloc Screen",
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
       body: Column(

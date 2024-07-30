@@ -15,7 +15,7 @@ class BlocWithVlb extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "ValueListenableBuilder with Bloc/Cubit",
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
       body: Column(

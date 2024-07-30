@@ -15,7 +15,7 @@ class CubitWithVlb extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "ValueListenableBuilder with Cubit",
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
       body: Column(

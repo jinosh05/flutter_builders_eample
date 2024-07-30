@@ -17,7 +17,7 @@ class _BuildersPageState extends State<BuildersPage> {
         appBar: AppBar(
           title: Text(
             "Builders with and Without SetState",
-            style: Theme.of(context).textTheme.headlineLarge,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ),
         body: Column(

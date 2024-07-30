@@ -14,7 +14,7 @@ class UniversalBlocScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Universal Bloc Screen",
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
       body: Column(

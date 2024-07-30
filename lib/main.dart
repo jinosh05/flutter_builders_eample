@@ -57,7 +57,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => MaterialApp(
-        theme: ThemeData.dark(),
+        theme: ThemeData.dark().copyWith(
+          textTheme: TextTheme(
+            headlineSmall: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: MediaQuery.sizeOf(context).height * 0.02,
+            ),
+          ),
+        ),
         debugShowCheckedModeBanner: false,
         home: HomePage(),
       );

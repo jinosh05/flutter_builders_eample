@@ -12,33 +12,42 @@ import "package:nested/nested.dart";
 
 void main() {
   runApp(
-    MultiBlocProvider(
-      providers: <SingleChildWidget>[
-        BlocProvider<VLBBloc>(
-          create: (final BuildContext context) => VLBBloc(),
-        ),
-        BlocProvider<Cubit1Cubit>(
-          create: (final BuildContext context) => Cubit1Cubit(),
-        ),
-        BlocProvider<UniversalBloc>(
-          create: (final BuildContext context) => UniversalBloc(),
-        ),
-        BlocProvider<AsyncBloc>(
-          create: (final BuildContext context) => AsyncBloc(),
-        ),
-        BlocProvider<CubitBaseCubit>(
-          create: (final BuildContext context) => CubitBaseCubit(),
-        ),
-        BlocProvider<BuildWhenBloc>(
-          create: (final BuildContext context) => BuildWhenBloc(),
-        ),
-        BlocProvider<BuildWhenCubit>(
-          create: (final BuildContext context) => BuildWhenCubit(),
-        ),
-      ],
-      child: const MainApp(),
-    ),
+    const BaseApp(),
   );
+}
+
+class BaseApp extends StatelessWidget {
+  const BaseApp({
+    super.key,
+  });
+
+  @override
+  Widget build(final BuildContext context) => MultiBlocProvider(
+        providers: <SingleChildWidget>[
+          BlocProvider<VLBBloc>(
+            create: (final BuildContext context) => VLBBloc(),
+          ),
+          BlocProvider<Cubit1Cubit>(
+            create: (final BuildContext context) => Cubit1Cubit(),
+          ),
+          BlocProvider<UniversalBloc>(
+            create: (final BuildContext context) => UniversalBloc(),
+          ),
+          BlocProvider<AsyncBloc>(
+            create: (final BuildContext context) => AsyncBloc(),
+          ),
+          BlocProvider<CubitBaseCubit>(
+            create: (final BuildContext context) => CubitBaseCubit(),
+          ),
+          BlocProvider<BuildWhenBloc>(
+            create: (final BuildContext context) => BuildWhenBloc(),
+          ),
+          BlocProvider<BuildWhenCubit>(
+            create: (final BuildContext context) => BuildWhenCubit(),
+          ),
+        ],
+        child: const MainApp(),
+      );
 }
 
 class MainApp extends StatelessWidget {

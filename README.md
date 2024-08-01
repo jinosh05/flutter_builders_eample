@@ -217,3 +217,9 @@ Happy coding!
 ---
 
 Remember to replace placeholders like `MyBloc`, `MyState`, `MyCubit`, `myService`, `myCubit`, `_counter`, etc., with actual implementations relevant to your project.
+
+
+
+
+## 🔑 License
+- This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details

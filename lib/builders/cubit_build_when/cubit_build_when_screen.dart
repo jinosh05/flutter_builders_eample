@@ -24,6 +24,7 @@ class CubitBuildWhenScreen extends StatelessWidget {
               horizontal: w * 5,
             ),
             child: Text(
+              // ignore: lines_longer_than_80_chars
               "The `buildWhen` function of `BlocBuilder` helps optimize performance by preventing unnecessary rebuilds, allowing the component to re-render only when specified conditions are met.",
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
